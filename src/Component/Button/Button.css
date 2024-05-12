@@ -1,0 +1,27 @@
+.btn-big {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #34C759; /* green color */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-small {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #34C759; /* green color */
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-big:hover, .btn-small:hover {
+    background-color: #2E865F; /* darker green color on hover */
+  }
+  
+  .btn-big:active, .btn-small:active {
+    background-color: #1E744F; /* even darker green color on active */
+  }

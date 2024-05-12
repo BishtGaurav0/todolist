@@ -1,0 +1,22 @@
+.checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkbox-input {
+    margin: 0 8px 0 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+  }
+  
+  .checkbox-input:checked +.checkbox-label {
+    color: #337ab7; /* blue color on checked */
+  }
+  
+ 
