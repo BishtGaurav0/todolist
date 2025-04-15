@@ -1,26 +1,39 @@
-import React, { useState } from 'react';
-import Checkbox from './Component/Checkbox/Checkbox';
-import Button from './Component/Button/Button';
+import React from 'react';
 
-const TodoRow = ({ todo, onDelete, onToggleComplete }) => {
-  const [hover, setHover] = useState(false);
-
+const TodoRow = ({
+  todo,
+  isEditing,
+  editText,
+  onEditTextChange,
+  onDelete,
+  onToggleComplete,
+  onEdit,
+  onCancelEdit,
+  onSaveEdit
+}) => {
   return (
-    <div
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <Checkbox
-        label={todo.text}
-        checked={todo.completed}
-        onChange={() => onToggleComplete(todo.id)}
-      />
-      {hover && (
-        <Button variant="small" onClick={() => onDelete(todo.id)}>
-          Delete
-        </Button>
+    <li className={`todo-row ${todo.completed ? 'completed' : ''}`}>
+      {isEditing ? (
+        <>
+          <input
+            type="text"
+            value={editText}
+            onChange={onEditTextChange}
+            className="edit-input"
+          />
+          <button onClick={onSaveEdit} className="save-btn">Save</button>
+          <button onClick={onCancelEdit} className="cancel-btn">Cancel</button>
+        </>
+      ) : (
+        <>
+          <span onClick={onToggleComplete} className="todo-text">
+            {todo.text}
+          </span>
+          <button onClick={onEdit} className="edit-btn">Edit</button>
+          <button onClick={onDelete} className="delete-btn">Delete</button>
+        </>
       )}
-    </div>
+    </li>
   );
 };
 

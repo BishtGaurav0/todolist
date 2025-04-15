@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoRow from './TodoRow';
-import "./TodoList.css"
+import './TodoList.css';
+
 const TodoList = () => {
   const [todos, setTodos] = useState([
     { id: uuidv4(), text: 'Todo 1', completed: false },
@@ -10,6 +11,8 @@ const TodoList = () => {
   ]);
 
   const [newTodoText, setNewTodoText] = useState('');
+  const [editTodoId, setEditTodoId] = useState(null);
+  const [editText, setEditText] = useState('');
 
   const addTodo = (text) => {
     setTodos((prevTodos) => [...prevTodos, { id: uuidv4(), text, completed: false }]);
@@ -35,6 +38,26 @@ const TodoList = () => {
     );
   };
 
+  const startEditing = (todo) => {
+    setEditTodoId(todo.id);
+    setEditText(todo.text);
+  };
+
+  const cancelEditing = () => {
+    setEditTodoId(null);
+    setEditText('');
+  };
+
+  const saveEdit = () => {
+    if (editText.trim() === '') return;
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === editTodoId ? { ...todo, text: editText } : todo
+      )
+    );
+    cancelEditing();
+  };
+
   return (
     <div className="todo-list">
       <form onSubmit={handleAddTask}>
@@ -54,8 +77,14 @@ const TodoList = () => {
           <TodoRow
             key={todo.id}
             todo={todo}
+            isEditing={editTodoId === todo.id}
+            editText={editText}
+            onEditTextChange={(e) => setEditText(e.target.value)}
             onDelete={() => deleteTodo(todo.id)}
             onToggleComplete={() => toggleTodoComplete(todo.id)}
+            onEdit={() => startEditing(todo)}
+            onCancelEdit={cancelEditing}
+            onSaveEdit={saveEdit}
           />
         ))}
       </ul>
