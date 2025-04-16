@@ -7,9 +7,7 @@ A minimalist and user-friendly **To-Do List App** built with **React.js** that h
 **Frontend**
 
 ## 🌐 Deployed App
-- **Frontend:** _Coming soon or hosted link here (e.g., Netlify, Vercel)_
-- **Backend:** _Not applicable_
-- **Database:** _Not applicable_
+- **Frontend:** _https://bishtgaurav0.github.io/todolist/
 
 ## 📁 Directory Structure
 
