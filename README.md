@@ -15,10 +15,7 @@ todo-app/ ├── public/ │ └── index.html │ ├── src/ │ ├�
 
 
 ## 📹 Video Walkthrough of the Project
-📽️ Coming soon!
-
-## 💻 Video Walkthrough of the Codebase
-📽️ Coming soon!
+![Image](https://github.com/user-attachments/assets/50339ed9-9ab0-48d9-88f5-56de13bb41db)
 
 ## ✨ Features
 
